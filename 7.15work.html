@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .banner {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            /* background-color: rosybrown; */
+        }
+
+        .swiper-wrapper {
+            width: 100%;
+            height: 400px;
+            /* position: absolute; */
+            overflow: hidden;
+
+        }
+
+        .swiper-pag {
+            width: 100%;
+            text-align: center;
+            height: 15px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: 20px;
+            /* background-color: red; */
+        }
+
+        a {
+            /* background: red; */
+            width: 1440px;
+            height: 400px;
+            position: relative;
+            display: block;
+        }
+
+        span {
+            display: inline-block;
+            width: 60px;
+            height: 5px;
+            background: rgba(255, 255, 255, 1);
+            cursor: pointer;
+            margin-right: 8px;
+            /* border-radius: 0; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="swiper-wrapper">
+            <a href="javascript:;" style="background-color: red;">111</a>
+            <a href="avascript:;" style="background-color: rosybrown;">222</a>
+            <a href="avascript:;" style="background-color: seagreen;">333</a>
+            <a href="avascript:;" style="background-color: sienna;">444</a>
+            <a href="avascript:;" style="background-color: skyblue;">555</a>
+            <a href="avascript:;" style="background-color:slateblue;">666</a>
+
+        </div>
+        <div class="swiper-pag">
+            <span style="background-color: #2691FD;"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+    </div>
+
+    <script>
+        var btns = document.querySelectorAll(".banner .swiper-pag span")
+        var as = document.querySelectorAll(".banner .swiper-wrapper a")
+        var num = 0;
+
+
+        setInterval(() => {
+            num++;
+            if(num>as.length-1){
+                num=0
+            }
+            for (let j = 0; j < as.length; j++) {
+                
+                as[j].style.display = "none";
+                btns[j].style.background = "rgba(255, 255, 255, 1)"
+
+            }
+            as[num].style.display = "block"
+            btns[num].style.background = "#2691FD"
+
+
+
+        }, 2500);
+
+
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                // console.log(i)
+                for (var j = 0; j < as.length; j++) {
+                    as[j].style.display = "none";
+                    btns[j].style.background = "rgba(255, 255, 255, 1)"
+                    num=i;
+
+
+                }
+                as[i].style.display = "block"
+                btns[i].style.background = "#2691FD"
+
+
+            }
+        }
+        // console.log(1)
+    </script>
+</body>
+
+</html>
